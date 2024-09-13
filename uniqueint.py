@@ -17,9 +17,6 @@ class UniqueInt:
             for integer in integers:
                 file.write(str(integer) + "\n")
 
-        print(f"Processed the unique integers from {
-              input_file_path} to {output_file_path}")
-
     @staticmethod
     def readUniqueIntegers(file_path):
         """
@@ -142,7 +139,7 @@ class UniqueInt:
 
 if __name__ == "__main__":
     input_folder = "inputs"
-    output_folder = "results"
+    output_folder = "outputs"
     
     overall_start_time = time.time()
 
