@@ -46,7 +46,10 @@ class UniqueInt:
 
         # Try to convert the line to an integer
         if UniqueInt.is_integer(stripped_line):
-            return int(stripped_line)
+            integer = int(stripped_line)
+            # Check if the integer is within the acceptable range
+            if integer >= -1023 and integer <= 1024:
+                return integer
 
         return None
 
