@@ -44,9 +44,6 @@ class UniqueInt:
         if not stripped_line:
             return None
 
-        print(f"h{stripped_line}h")
-        print(UniqueInt.is_integer(stripped_line))
-
         # Try to convert the line to an integer
         if UniqueInt.is_integer(stripped_line):
             return int(stripped_line)
@@ -83,14 +80,16 @@ class UniqueInt:
     @staticmethod
     def strip(s):
         """
-        Remove all starting and trailing whitepsce from a string
+        Remove all leading and trailing whitespace from a string
         """
         result = ""
         i = 0
         space_characters = (' ', '\t', '\n')
+        # remove all leading whitespace characters
         while i < len(s) and (s[i] in space_characters):
             i += 1
         j = len(s) - 1
+        # remove all trailing whitespace characterss
         while j >= 0 and (s[j] in space_characters):
             j -= 1
         for k in range(i, j + 1):
