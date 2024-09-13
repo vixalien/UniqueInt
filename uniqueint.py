@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+import os
+import time
+
 class UniqueInt:
     @staticmethod
     def processFile(input_file_path, output_file_path):
@@ -137,29 +140,26 @@ class UniqueInt:
                     arr[j], arr[j+1] = arr[j+1], arr[j]
         return arr
 
-UniqueInt.processFile("hello.txt", "world.txt")
-
-"""
 if __name__ == "__main__":
-    UniqueInt.ask_user()
-"""
-
-"""
-if __name__ == "__main__":
-    input_folder = "/home/kellia/UniqueInt/inputs"
-    output_folder = "/home/kellia/UniqueInt/results"
+    input_folder = "inputs"
+    output_folder = "results"
     
-    unique_int_processor = UniqueInt()
+    overall_start_time = time.time()
 
     for filename in os.listdir(input_folder):
         if filename.endswith(".txt"):
-            input_path = os.path.join(input_folder, filename)
-            output_path = os.path.join(output_folder, f"{filename}_results.txt")
+            # Remove the .txt extension
+            basename = filename[:-4]
 
-            # Timing for each file
+            input_path = os.path.join(input_folder, filename)
+            output_path = os.path.join(output_folder, f"{basename}.txt_results.txt")
+
+            # Measure performance for each file for each file
             start_time = time.time()
-            unique_int_processor.process_file(input_path, output_path)
+            UniqueInt.processFile(input_path, output_path)
             end_time = time.time()
 
             print(f"Processed {filename} in {end_time - start_time:.4f} seconds")
-"""
+
+    overall_end_time = time.time()
+    print(f"Processed all files in {overall_end_time - overall_start_time:.4f} seconds")
